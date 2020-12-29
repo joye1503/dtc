@@ -32,6 +32,17 @@ matrix:
         - make
         - make check
 
+    - arch: amd64
+      addons:
+        apt_packages:
+          - swig
+          - python-dev
+          - valgrind
+          - libyaml-0-2
+      script:
+        - make
+        - make check checkm
+    
     - arch: arm64
       addons:
         apt_packages:
@@ -43,6 +54,19 @@ matrix:
         - make
         - make check checkm
 
+    - arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      addons:
+        apt_packages:
+          - swig
+          - python-dev
+          - valgrind
+          - libyaml-0-2
+      script:
+        - make
+        - make check checkm
+    
     - arch: ppc64le
       addons:
         apt_packages:
